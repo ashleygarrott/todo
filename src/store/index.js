@@ -24,11 +24,11 @@ export default new Vuex.Store({
                         text: "sub-task 2",
                         date: "",
                         time: "",
-                        done: false
+                        done: true
                     }
                 ],
                 completeness: 10,
-                done: true
+                done: false
             },
             {
                 id: 1,

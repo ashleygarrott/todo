@@ -17,6 +17,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import vuetify from '@/plugins/vuetify' // path to vuetify export
 import store from './store/index.js'
+ import '@/plugins/firebase.js' 
 
 
 
