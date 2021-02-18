@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>SlideDeck</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../dist/VueInterface.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1 class="mb-5">slide-deck</h1>
+
+            <h3>Basic Usage</h3>
+            <p>
+                A slide deck is an abstract component that adds a slide effect between components.
+                The height of the slide deck will automatically grow to the next slide. Since each
+                element must be different, or a key must be defined for Vue transitions, the
+                component will automatically add the slide index as a key if a key isn't define.
+                The component handles the differing animations for going backwards and forwards.
+            </p>
+
+            <div class="w-25">
+                <slide-deck fluid :active="currentSlide" style="background: pink;">
+                    <div key="Slide 1" class="p-3">
+                        <h2>Slide 1</h2>
+                        <input-field v-model="form.field1" label="Field 1"/>
+                        <btn type="button" @click="currentSlide = 'Slide 2'">Next <i class="fa fa-long-arrow-right"></i></btn>
+                    </div>
+                    <div key="Slide 2" class="p-3" style="background: red; height: 400px;">
+                        <h2>Slide 2</h2>
+                        <input-field v-model="form.field2" label="Field 2"/>
+                        <btn type="button" @click="currentSlide = 'Slide 1'"><i class="fa fa-long-arrow-left"></i> Prev</btn>
+                        <btn type="button" @click="currentSlide = 'Slide 3'">Next <i class="fa fa-long-arrow-right"></i></btn>
+                    </div>
+                    <div key="Slide 3" class="p-3" style="height: 300px; background: yellow;">
+                        <h2>Slide 3</h2>
+                        <input-field v-model="form.field3" label="Field 3"/>
+                        <btn type="button" @click="currentSlide = 'Slide 2'"><i class="fa fa-long-arrow-left"></i> Prev</btn>
+                        <btn type="button" @click="currentSlide = 'Slide 4'">Next <i class="fa fa-long-arrow-right"></i></btn>
+                    </div>
+                    <div key="Slide 4" class="p-3">
+                        <h2>Slide 4</h2>
+                        <input-field v-model="form.field4" label="Field 4"/>
+                        <btn type="button" @click="currentSlide = 'Slide 3'"><i class="fa fa-long-arrow-left"></i> Prev</btn>
+                    </div>
+                </slide-deck>
+            </div>
+
+            <hr>
+
+            <h3>Advanced Usage</h3>
+            <p>A more practical usage would be something inside a popover, there is a login form and the state changes. With each state change, it could transition to a new slide.</p>
+
+            <div class="position-relative" style="min-height: 400px">
+                <popover>
+                    <slide-deck :active="step" resize-mode="initial">
+                        <form key="1" @submit.prevent="step = 1">
+                            <alert variant="info">
+                                <i class="fa fa-info-circle"></i> You can enter any username and password value.
+                            </alert>
+                            <input-field v-model="form.email" label="Email"></input-field>
+                            <input-field v-model="form.password" label="Password" type="password"></input-field>
+                            <btn>Login</btn>
+                            <a href="#" class="ml-3">Forget Password</a>
+                        </form>
+                        <div key="2" class="position-relative p-5" style="min-width: 250px">
+                            <activity-indicator label="Authenticating..." size="md"></activity-indicator>
+                        </div>
+                        <div key="3" class="text-center py-5 px-4" style="min-width: 250px">
+                            <p><i class="text-success fa fa-check fa-4x"></i></p>
+                            You have been logged in!
+                        </div>
+                    </slide-deck>
+                </popover>
+            </div>
+
+            <hr>
+
+            <h3>SlideDeck with Controls</h3>
+            <p>The controls can be automatically handled with a single property.</p>
+
+            <div>
+                <slide-deck :active="1" controls>
+                    <img src="http://via.placeholder.com/1440x500?text=Slide 1" class="img-fluid"/>
+                    <img src="http://via.placeholder.com/1440x500?text=Slide 2" class="img-fluid"/>
+                    <img src="http://via.placeholder.com/1440x500?text=Slide 3" class="img-fluid"/>
+                </slide-deck>
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <script type="text/javascript" src="../../../dist/VueInterface.umd.js"></script>
+        <script type="text/javascript">
+            const vue = new Vue({
+                el: '#app',
+                watch: {
+                    step(value) {
+                        if(value === 1) {
+                            setTimeout(() => {
+                                this.step = 2;
+                            }, 2000);
+                        }
+                    }
+                },
+                methods: {
+
+                },
+                data() {
+                    return {
+                        form: {},
+                        step: 0,
+                        currentSlide: 'Slide 2'
+                    };
+                }
+            });
+        </script>
+    </body>
+</html>

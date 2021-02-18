@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>CheckboxField</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../dist/VueInterface.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1 class="mb-5">checkbox-field</h1>
+
+            <h3>Basic Usage</h3>
+
+            <h5 class="mt-4">Block Layout</h5>
+
+            <checkbox-field v-model="colors" name="colors[]" value="red">Red</checkbox-field>
+
+            <checkbox-field v-model="colors" name="colors[]" value="green">Green</checkbox-field>
+            <checkbox-field v-model="colors" name="colors[]" value="blue">Blue</checkbox-field>
+            <checkbox-field v-model="colors" name="colors[]" value="yellow" readonly>Yellow (Readonly)</checkbox-field>
+
+            <h5 class="mt-4">Inline Layout</h5>
+
+            <checkbox-field name="colors1[]" label="Red" value="red" :inline="true"></checkbox-field>
+            <checkbox-field name="colors1[]" label="Green" value="green" :inline="true"></checkbox-field>
+            <checkbox-field name="colors1[]" label="Blue" value="blue" :inline="true"></checkbox-field>
+            <checkbox-field name="colors[]" value="yellow" readonly :inline="true">Yellow (Readonly)</checkbox-field>
+
+            <hr>
+
+            <h3>Sizes</h3>
+
+            <checkbox-field size="sm" placeholder="Small">Small</checkbox-field>
+            <checkbox-field size="md" placeholder="Medium">Medium</checkbox-field>
+            <checkbox-field size="lg" placeholder="Large">Large</checkbox-field>
+
+            <hr>
+
+            <h3>Colors</h3>
+
+            <checkbox-field label="Primary" text-white bg-primary></checkbox-field>
+            <checkbox-field label="Secondary" text-white bg-secondary></checkbox-field>
+            <checkbox-field label="Success" text-white bg-success></checkbox-field>
+            <checkbox-field label="Danger" text-white bg-danger></checkbox-field>
+            <checkbox-field label="Warning" text-white bg-warning></checkbox-field>
+            <checkbox-field label="Info" text-white bg-info></checkbox-field>
+            <checkbox-field label="Dark" text-light bg-dark></checkbox-field>
+            <checkbox-field label="Muted" text-dark bg-muted></checkbox-field>
+            <checkbox-field label="White" text-dark bg-white></checkbox-field>
+
+            <hr>
+
+            <h3>Custom Elements</h3>
+
+            <h5 class="mt-4">Block Layout</h5>
+
+            <checkbox-field v-model="colors" name="custom1" value="red" custom >Red</checkbox-field>
+            <checkbox-field v-model="colors" name="custom1" value="green" custom checked>Green</checkbox-field>
+            <checkbox-field v-model="colors" name="custom1" value="blue" custom>Blue</checkbox-field>
+            <checkbox-field v-model="colors" name="custom1" value="yellow" custom readonly>Yellow (Readonly)</checkbox-field>
+
+            <h5 class="mt-4">Inline Layout</h5>
+
+            <checkbox-field name="custom2" value="red" id="red2" inline custom>Red</checkbox-field>
+            <checkbox-field name="custom2" value="green" id="green2" inline custom checked>Green</checkbox-field>
+            <checkbox-field name="custom2" value="blue" id="blue2" inline custom>Blue</checkbox-field>
+            <checkbox-field name="custom2" value="yellow" id="yellow2" inline custom readonly>Yellow (Readonly)</checkbox-field>
+
+            <hr>
+
+            <h3>Validation</h3>
+
+            <checkbox-field label="Single Inline Error" required error="This is an inline error."></checkbox-field>
+
+            <checkbox-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}"></checkbox-field>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <script type="text/javascript" src="../../../dist/VueInterface.umd.js"></script>
+        <script type="text/javascript">
+            const vue = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        colors: [
+                            'red',
+                            'blue'
+                        ]
+                    };
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Modal</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../dist/VueInterface.css">
+        <style>
+            .modal-open {
+                overflow: auto !important;
+            }
+
+            .static-modal .modal {
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                left: auto;
+                z-index: 1;
+                display: block;
+            }
+
+            .static-modal .fade {
+                transition: none;
+            }
+
+            .static-modal .fade .modal-dialog {
+                transition: none;
+            }
+
+            .static-modal .modal-dialog {
+                margin: 0;
+            }
+
+            .static-modal .modal-backdrop {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1 class="mb-5">modal</h1>
+
+            <h3>Basic Usage</h3>
+            <p>This show the most basic usage a modal. By default, it doesn't really do anything...</p>
+
+            <div class="static-modal">
+                <modal>
+                    Some modal content goes here.
+                </modal>
+            </div>
+
+            <hr>
+
+            <h3>Modal w/Title</h3>
+            <p>Show the modal with a title.</p>
+
+            <div class="static-modal">
+                <modal title="Some modal title">
+                    Some modal content goes here.
+                </modal>
+            </div>
+
+            <hr>
+
+            <h3>Override Footer and Header</h3>
+            <p>Show the modal with a title.</p>
+
+            <div class="static-modal">
+                <modal>
+                    <modal-header slot="header">
+                        <modal-title slot="title">Some modal title</modal-title>
+                    </modal-header>
+
+                    <modal-body slot="body">
+                        Some modal content goes here.
+                    </modal-body>
+
+                    <modal-footer slot="footer">
+                        <btn type="button" variant="secondary">Cancel</btn>
+                        <btn type="button">Ok</btn>
+                    </modal-footer>
+                </modal>
+            </div>
+
+            <hr>
+
+            <h3>Modal Types</h3>
+            <p>The modal component provides a few helpers to make adding buttons easier based on the type of modal you want to display. There are 3 types of modal presets, "alert", "confirm", "prompt".</p>
+
+            <div class="static-modal mb-3">
+                <modal type="alert" title="Alert Modal" ok-label="Some ok label...">
+                    The alert modal comes with one button to accept the notification.
+                </modal>
+            </div>
+
+            <div class="static-modal mb-3">
+                <modal type="confirm" title="Confirm Modal" ok-label="Some ok label" cancel-label="Some cancel label">
+                    The confirm modal comes with two buttons, one to confirm the notification, and one to cancel.
+                </modal>
+            </div>
+
+            <div class="static-modal">
+                <modal type="confirm" title="Prompt Modal" ok-label="Some ok label" cancel-label="Some cancel label">
+                    The prompt modal comes with the same two buttons as confirm.
+                </modal>
+            </div>
+
+            <hr>
+
+            <h3>Targets</h3>
+
+            <p>Most of the time you want to use a modal, its triggered to show by doing something. You can bind the modal to open/close with any element event. The default trigger is a `click`.</p>
+
+            <btn class="alert-modal" type="button">Click to show modal</btn>
+
+            <modal type="confirm" title="Alert Modal" target=".alert-modal" @cancel="(event, modal) => { }" @confirm="(event, modal) => { modal.close() }">
+                The alert modal comes with one button to accept the notification.
+            </modal>
+
+            <hr>
+
+            <h3>Triggers</h3>
+
+            <p>You can change the event trigger used open the modals. This example will use the focus/blur events to toggle the modal.</p>
+
+            <btn class="alert-modal-focus" type="button">Focus on me</btn>
+
+            <modal type="alert" title="Alert Modal" target=".alert-modal-focus" trigger="focus">
+                The alert modal comes with one button to accept the notification.
+            </modal>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <script type="text/javascript" src="../../../dist/VueInterface.umd.js"></script>
+        <script type="text/javascript">
+            const vue = new Vue({
+                el: '#app',
+                methods: {
+
+                }
+            });
+        </script>
+    </body>
+</html>

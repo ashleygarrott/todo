@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>ActivityIndicator</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../dist/VueInterface.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1>activity-indicator</h1>
+
+            <h3>Dots</h3>
+
+            <div class="row py-5">
+                <div class="col-sm-2">
+                    <activity-indicator type="dots" size="xs" color="primary"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="dots" size="sm"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="dots" size="md"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="dots" size="lg"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="dots" size="xl"></activity-indicator>
+                </div>
+            </div>
+
+            <h3>Spinner</h3>
+
+            <div class="row py-5">
+                <div class="col-sm-2">
+                    <activity-indicator type="spinner" size="xs"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="spinner" size="sm"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="spinner" size="md"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="spinner" size="lg"></activity-indicator>
+                </div>
+                <div class="col-sm-2">
+                    <activity-indicator type="spinner" size="xl"></activity-indicator>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <script type="text/javascript" src="../../../dist/VueInterface.umd.js"></script>
+        <script type="text/javascript">
+            const vue = new Vue({
+                el: '#app'
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Form Feedback</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../dist/VueInterface.css">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1 class="mb-5">form-feedback</h1>
+
+            <h3>Valid</h3>
+
+            <div class="was-validated mb-3">
+                <form-control class="is-valid" valid></form-control>
+                <form-feedback valid>Some Invalid Feedback</form-feedback>
+            </div>
+
+            <h3>Invalid</h3>
+
+            <div class="was-validated mb-3">
+                <form-control class="is-invalid" invalid required></form-control>
+                <form-feedback invalid>Some Invalid Feedback</form-feedback>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+        <script type="text/javascript" src="../../../dist/VueInterface.umd.js"></script>
+        <script type="text/javascript">
+            const vue = new Vue({
+                el: '#app'
+            });
+        </script>
+    </body>
+</html>
